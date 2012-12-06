@@ -89,7 +89,11 @@ if (isset($submitted)) {
 echo "<p>Use the drop down box below to select the Moodle category you'd like to process, then press submit.</p>";
 
 // get details of top level course categories
-$cats = $DB->get_recordset_sql('SELECT id, name FROM {course_categories} WHERE depth = 1 ORDER BY name ASC');
+$cats = $DB->get_recordset_sql("SELECT id, name
+        FROM {course_categories}
+        WHERE depth = 1
+        OR name LIKE 'taster courses'
+        ORDER BY name ASC");
 
 echo "<form method='get' action='$CFG->wwwroot/report/courseaudit/auditbycat.php'>";
 echo "<div>";
@@ -398,5 +402,7 @@ echo "<p><a href='$CFG->wwwroot/report/courseaudit/download.php'>Download audit
         report as a spreadsheet</a></p>";
 echo "<p style='font-size:0.8em;'>Note: you should process the course ratings for
         each School before attempting to download the report.</p>";
+echo "<hr /><p><a href='$CFG->wwwroot/report/courseaudit/downloadtaster.php'>Download
+        audit report for taster courses</a></p>";
 
 echo $OUTPUT->footer();
