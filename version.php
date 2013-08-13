@@ -31,5 +31,5 @@ $plugin->component    = 'report_courseaudit';   // Full name of the plugin (used
 $plugin->maturity     = MATURITY_STABLE;
 $plugin->release      = '2.2.0';
 $plugin->dependencies = array (
-    'block_course_rating' => 2012110600,        // Needs the course rating block
+    'block_course_rating' => 2013081300,        // Needs the course rating block
 );
