@@ -127,6 +127,11 @@ $coursetotal = $DB->count_records_sql("SELECT COUNT({course}.id)
         AND {course_categories}.name NOT LIKE '%staff only%'
         AND {course_categories}.name NOT LIKE '%sandbox%'
         AND {course_categories}.name NOT LIKE '%archive%'
+        AND SUBSTRING_INDEX({course_categories}.path, '/', 2) NOT IN
+            (SELECT path
+            FROM {course_categories}
+            WHERE depth = 1
+            AND visible = 0)
         AND {course}.visible = 1");
 
 $coursetotal = $coursetotal - $excludetotal;
