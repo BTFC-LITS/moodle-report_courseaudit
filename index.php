@@ -46,7 +46,9 @@ if (isset($submitted)) {
             WHERE (path LIKE '/$categoryid/%' OR id = $categoryid)
             AND name NOT LIKE '%child courses%'
             AND name NOT LIKE '%staff only%'
-            AND name NOT LIKE '%sandbox%' ORDER BY path");
+            AND name NOT LIKE '%sandbox%'
+            AND name NOT LIKE '%archive%'
+            ORDER BY path");
 
     // get course ids from current and sub-categories to update ratings
     foreach ($subcats as $subcat) {
@@ -124,6 +126,7 @@ $coursetotal = $DB->count_records_sql("SELECT COUNT({course}.id)
         WHERE {course_categories}.name NOT LIKE '%child courses%'
         AND {course_categories}.name NOT LIKE '%staff only%'
         AND {course_categories}.name NOT LIKE '%sandbox%'
+        AND {course_categories}.name NOT LIKE '%archive%'
         AND {course}.visible = 1");
 
 $coursetotal = $coursetotal - $excludetotal;
@@ -238,7 +241,9 @@ foreach ($cats as $cat) {
             WHERE (path LIKE '/$catid/%' OR id = $catid)
             AND name NOT LIKE '%child courses%'
             AND name NOT LIKE '%staff only%'
-            AND name NOT LIKE '%sandbox%' ORDER BY path");
+            AND name NOT LIKE '%sandbox%'
+            AND name NOT LIKE '%archive%'
+            ORDER BY path");
 
     // skip category if it contains no valid sub-categories
     if (!$subcats->valid()) {
@@ -286,6 +291,7 @@ foreach ($cats as $cat) {
             AND {course_categories}.name NOT LIKE '%child courses%'
             AND {course_categories}.name NOT LIKE '%staff only%'
             AND {course_categories}.name NOT LIKE '%sandbox%'
+            AND {course_categories}.name NOT LIKE '%archive%'
             AND {course}.visible = 1");
 
     if ($coursecount > 0) {

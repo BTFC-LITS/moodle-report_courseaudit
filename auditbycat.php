@@ -56,7 +56,9 @@ $subcats = $DB->get_recordset_sql("SELECT id, name FROM {course_categories}
         WHERE (path LIKE '/$cat/%' OR id = $cat)
         AND name NOT LIKE '%child courses%'
         AND name NOT LIKE '%staff only%'
-        AND name NOT LIKE '%sandbox%' ORDER BY path");
+        AND name NOT LIKE '%sandbox%'
+        AND name NOT LIKE '%archive%'
+        ORDER BY path");
 
 $novalidcourses = true;
 
