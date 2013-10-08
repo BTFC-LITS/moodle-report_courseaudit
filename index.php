@@ -94,7 +94,7 @@ echo "<p>Use the drop down box below to select the Moodle category you'd like to
 $cats = $DB->get_recordset_sql("SELECT id, name
         FROM {course_categories}
         WHERE depth = 1
-        OR name LIKE 'taster courses'
+        AND visible = 1
         ORDER BY name ASC");
 
 echo "<form method='get' action='$CFG->wwwroot/report/courseaudit/auditbycat.php'>";
@@ -232,7 +232,7 @@ $table = "<table style='text-align: left; width: 100%;' border='0' cellpadding='
 echo $table;
 
 // audit summary table per each top level category
-$cats = $DB->get_recordset_sql('SELECT id, name FROM {course_categories} WHERE depth = 1 ORDER BY name ASC');
+$cats = $DB->get_recordset_sql('SELECT id, name FROM {course_categories} WHERE depth = 1 AND visible = 1 ORDER BY name ASC');
 
 foreach ($cats as $cat) {
     $catid = $cat->id;
