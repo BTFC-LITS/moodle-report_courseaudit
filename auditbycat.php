@@ -401,8 +401,8 @@ foreach ($subcats as $subcat) {
             $rating->glossarynum = $glossarycount;
             $rating->wikinum     = $wikicount;
 
-            // if course has enrolments and at least half are active, calculate rating
-            if ($enrolcount > 0 && $activepc >= 50) {
+            // if course has enrolments, calculate rating
+            if ($enrolcount > 0) {
 
                 // apply bronze weightings
                 $bronzescore = ($bookcount * 2) + ($contentscount * 3) + ($filecount * 1) +
