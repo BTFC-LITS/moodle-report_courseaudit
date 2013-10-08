@@ -405,10 +405,10 @@ foreach ($subcats as $subcat) {
             if ($enrolcount > 0 && $activepc >= 50) {
 
                 // apply bronze weightings
-                $bronzescore = ($bookcount * 2) + ($contentscount * 3) + ($filecount * 1) +
-                        ($foldercount * 1) + ($gallerycount * 5) + ($headingcount * 1) +
-                        ($htmlcount * 2) + ($labelcount * 1) + ($linkcount * 1) +
-                        ($mediacount * 5) + ($newscount * 2) + ($pagecount * 2) +
+                $bronzescore = ($bookcount * 5) + ($contentscount * 3) + ($filecount * 3) +
+                        ($foldercount * 3) + ($gallerycount * 5) + ($headingcount * 2) +
+                        ($htmlcount * 3) + ($labelcount * 3) + ($linkcount * 2) +
+                        ($mediacount * 5) + ($newscount * 2) + ($pagecount * 3) +
                         ($rsscount * 3);
 
                 // do we satisfy the minimum criteria for bronze?
