@@ -413,7 +413,5 @@ echo "<p><a href='$CFG->wwwroot/report/courseaudit/download.php'>Download audit
         report as a spreadsheet</a></p>";
 echo "<p style='font-size:0.8em;'>Note: you should process the course ratings for
         each School before attempting to download the report.</p>";
-echo "<hr /><p><a href='$CFG->wwwroot/report/courseaudit/downloadtaster.php'>Download
-        audit report for taster courses</a></p>";
 
 echo $OUTPUT->footer();
