@@ -321,14 +321,14 @@ foreach ($subcats as $subcat) {
             $rating->rssnum      = $rsscount;
 
             // silver stats
-            $assignments = $DB->get_recordset('assignment', array('course'=>$courseid), '', 'id');
+            $assignments = $DB->get_recordset('assign', array('course'=>$courseid), '', 'id');
 
             // only count assignments with submissions from at least half the students
             $assigncount = 0;
 
             foreach ($assignments as $assignment) {
                 $assignid = $assignment->id;
-                $submitcount = $DB->count_records('assignment_submissions', array('assignment'=>$assignid));
+                $submitcount = $DB->count_records('assign_submission', array('assignment'=>$assignid));
                 if ($submitcount >= ($enrolcount / 2)) {
                     $assigncount++;
                 }
